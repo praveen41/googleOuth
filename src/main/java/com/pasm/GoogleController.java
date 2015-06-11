@@ -5,6 +5,7 @@ package com.pasm;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.json.JSONObject;
@@ -42,13 +43,13 @@ public class GoogleController {
 
 	private final GoogleAuthorizationCodeFlow flow;
 
-	private static final String CLIENT_ID = "******";
-	private static final String CLIENT_SECRET = "******";
+	private static final String CLIENT_ID = "286353221353-4450lnupui0jvclc4k76ngnrge2jb99s.apps.googleusercontent.com";
+	private static final String CLIENT_SECRET = "wB1cim8unDgY-MyDibJ3hS8b";
 	private static final String CALLBACK_URI = "http://localhost:8080/GoogleOuthExample/authSuccess";
 
 	public GoogleController() {
 		flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT,
-				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, SCOPE).build();
+				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, (Collection<String>) SCOPE).build();
 		generateStateToken();
 	}
 
