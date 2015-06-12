@@ -42,9 +42,10 @@ public class GoogleController {
 	private String stateToken;
 
 	private final GoogleAuthorizationCodeFlow flow;
-
-	private static final String CLIENT_ID = "286353221353-4450lnupui0jvclc4k76ngnrge2jb99s.apps.googleusercontent.com";
-	private static final String CLIENT_SECRET = "wB1cim8unDgY-MyDibJ3hS8b";
+	//google client id
+	private static final String CLIENT_ID = "*****";
+	//google secret code
+	private static final String CLIENT_SECRET = "******";
 	private static final String CALLBACK_URI = "http://localhost:8080/GoogleOuthExample/authSuccess";
 
 	public GoogleController() {
@@ -59,9 +60,11 @@ public class GoogleController {
 	}
 
 	
-	/*
-	 * 
-	 */
+	 /**
+	   * This method is used to redirect to google api.
+	   * 
+	   * @return String 
+	   */
 	@RequestMapping(value = "/googleLogin", method = RequestMethod.GET)
 	public String buildLoginUrl(Map<String, Object> model,
 			HttpServletRequest request) {
@@ -71,10 +74,11 @@ public class GoogleController {
 				+ url.setRedirectUri(CALLBACK_URI).setState(stateToken).build();
 	}
 	
-	/*
-	 * 
-	 */
-	
+	 /**
+	   * This method is used display the user information.
+	   * This method is calling after authentication success
+	   * @return String 
+	   */
 	@RequestMapping(value = "/authSuccess")
 	public String getRedirectURL(Map<String, Object> model,final HttpServletRequest request)
 			throws Exception {
