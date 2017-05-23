@@ -68,7 +68,9 @@
 		</dependency>
 		
 	</dependencies>
-	<plugins>
+	
+	<build>
+		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -80,7 +82,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	<build>
 		<finalName>GoogleOuth</finalName>
 	</build>
 </project>
